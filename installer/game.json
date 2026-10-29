@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "game": "naruto-storm",
+  "title": "Naruto: Ultimate Ninja Storm",
+  "title_id": "BLES00371",
+  "version": "01.00",
+  "elf_sha256": "e7c95248f8016de07f35d35bd58a04d07a9c3e51fd93f25baa680f60f54b72dd",
+  "sdk_lock": "ports/naruto-storm/sdk.lock.json",
+  "repo": "OPaiva-1721/naruto-storm-recomp",
+  "executable": "NarutoStorm.exe",
+  "controls": "naruto-controls.ini",
+  "minimum_free_bytes": 12884901888,
+  "runtime_dlls": [
+    "avcodec-62.dll",
+    "avutil-60.dll",
+    "swresample-6.dll"
+  ],
+  "jobs": [
+    {
+      "name": "spujob_046EC13E52270271_25232.bin",
+      "offset": 9964800,
+      "size": 25232,
+      "sha256": "8061130040b2379668a93b4cf32d33a4dd0c47ac6aacbf5b06d59e43adb97c7d"
+    },
+    {
+      "name": "spujob_3F045A65DBF3F1B1_8784.bin",
+      "offset": 10016896,
+      "size": 8784,
+      "sha256": "b54ae94f7f4382ff948e2445383e3060d12e5941725d166b775c3db02be8f906"
+    },
+    {
+      "name": "spujob_DE217DB1989C21EA_2064.bin",
+      "offset": 10010496,
+      "size": 2064,
+      "sha256": "da3ffab3e1a8b630a7614a67fd5bd1823ce04b240620bda0b9ec5c6c88b02b99"
+    },
+    {
+      "name": "spujob_F49444A7B1856035_3152.bin",
+      "offset": 10025728,
+      "size": 3152,
+      "sha256": "bf93f9961a560ee85a87b710184dbc3b89055c40d26dc87e1390f9ddc1a9474f"
+    }
+  ]
+}
