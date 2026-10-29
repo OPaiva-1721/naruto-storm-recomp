@@ -1,0 +1,9 @@
+{
+  "upstream": "https://github.com/sp00nznet/ps3recomp",
+  "base": "39a36296511c445707adabcd312f0b740cfbd694",
+  "patch": "patches/ports/naruto-storm/sdk.patch",
+  "sha256": "b22e057505364c35dcd0e8f4967852c534c148610f17bebe3d8f8c0d8a08f18d",
+  "expected_tree": "81f9a17ef2e139348f6159dff32b3182ccaa54f9",
+  "source_revision": "baaf7c70dd01b12d55605f3890ed52d15ca8002e",
+  "note": "Source revision is provenance, not a public upstream commit to fetch. Apply patch to upstream base."
+}
