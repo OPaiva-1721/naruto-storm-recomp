@@ -1,3 +1,60 @@
-# Validação final da instalação
+# Validação do instalador experimental
 
-Pendente. Código implementado; nenhum teste final ou build/gameplay novo foi realizado ainda. Não distribuir Setup como validado até registrar os resultados reais.
+Validação local em 29/10/2026, Windows x64/D3D12. Os testes foram concentrados
+no final por solicitação do usuário. Não é validação de campanha completa.
+
+## Motor e ferramentas
+
+- 38 testes do instalador: identidade SFO/ELF, estado e hashes, retomada,
+  proteção de userdata, falta de espaço, cancelamento de processo próprio,
+  lock, rede indisponível, snapshot malicioso/incompleto, ativação de revisão,
+  estados da UI e fechamento de sessão própria.
+- 34 testes de pipeline/auditoria por repositório.
+- Atalho real executado via cmd.exe em pasta com espaços e acentos.
+- SDK obtido do upstream, patch e árvore conferidos pelo lock. Saídas de PPU,
+  SPU e build produzidas em destino novo; nenhum lift antigo foi copiado.
+- Auditoria do histórico Git sem bloqueadores nem alertas na revisão examinada.
+
+## Execução local
+
+Instalação nova gerou 48 chunks PPU, imagem SPU e quatro jobs extraídos do
+próprio ELF e conferidos por hash; build concluído. Menu, história, tutorial e
+vila renderizados; movimento, pausa e interação no ponto azul do Ichiraku
+observados. Save criado pelo jogo em TESTDATA.S, sem importar save anterior.
+Após atualizar e reabrir, Load Game leu o save e restaurou a vila jogável.
+Na primeira tentativa de Skip, a seleção YES não foi conferida antes de Cross;
+não é prova de regressão. A nova tentativa chegou à vila e o load posterior passou.
+
+## Atualização e preservação
+
+Revisão de origem atualizada para `5e9cbc831e1c`. O transporte HTTP
+foi substituído pelos objetos exatos de um commit Git local ainda não publicado;
+extração verificada, novo motor, geração, compilação e ativação foram reais.
+Não se trata de teste de download de uma release publicada no GitHub.
+
+Os 2324 arquivos existentes em userdata mantiveram exatamente seus hashes
+durante a atualização. Executável anterior preservado; apontamento ativo trocado
+somente após conclusão. Falhas de rede/build e retomada também têm testes sintéticos.
+
+## Pacote e limites
+
+O empacotador usa somente fontes versionadas e bibliotecas do Python/PyInstaller;
+não inclui dump, firmware, lift, jobs extraídos nem executável recompilado do jogo.
+Identidade do Setup pode ser conferida com `--describe arquivo.json`; o SHA-256
+acompanha cada arquivo gerado em `build/package/<commit>/dist`.
+
+A interface chama o mesmo motor exercitado pela CLI. Abertura da janela e
+mensagens de requisitos são testes de UI; não substituem os testes reais do motor.
+Não houve segunda máquina Windows independente nem prova de compilação completa
+em caminho acentuado. Áudio auditivo, controle físico, campanha e estabilidade
+longa continuam fora desta validação. Não há promessa de FPS estável.
+
+O runtime pode deixar threads vivas depois de fechar a janela. O launcher espera
+30 segundos sem nenhuma janela visível do próprio filho já observado e encerra
+somente esse processo restante; janela minimizada não dispara essa limpeza.
+Não há timeout enquanto a janela do jogo permanece aberta.
+
+A decifragem real de EBOOT.BIN passou com RPCS3 isolado pelo próprio motor;
+ELF conferido pelo hash do perfil e origem intacta. O motor copia somente
+executável/dependências do RPCS3 para cache privado com portable vazio, sem
+copiar nem alterar as configurações da instalação original.
