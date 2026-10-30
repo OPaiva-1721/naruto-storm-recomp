@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.22.1)
+project(naruto_diagnostics LANGUAGES CXX)
+add_library(naruto_diagnostics SHARED diagnostics.cpp)
+target_compile_features(naruto_diagnostics PRIVATE cxx_std_17)
+target_compile_options(naruto_diagnostics PRIVATE -Wall -Wextra -Werror)
+target_link_libraries(naruto_diagnostics PRIVATE dl)

@@ -22,3 +22,12 @@ fazem parte do código autoral disponibilizado.
 
 PyInstaller 6.22.3: GPL-2.0 com exceção para distribuição de programas empacotados; alguns componentes Apache-2.0. Python/Tcl/Tk preservam suas licenças.
 Referências: https://pyinstaller.org/en/stable/license.html e https://www.python.org/psf/license/. O empacotador não é incorporado ao jogo.
+
+## Esqueleto Android
+
+Gradle wrapper 9.1.0, JAR e scripts: Apache-2.0; origem oficial
+https://github.com/gradle/gradle/tree/v9.1.0/gradle/wrapper e
+https://github.com/gradle/gradle/blob/v9.1.0/LICENSE. Checksum oficial documentado
+em docs/ANDROID.md. AGP e Android NDK são dependências de build externas,
+não árvores vendorizadas; Vulkan headers e stubs vêm do NDK instalado pelo
+colaborador. O app de diagnóstico não incorpora o runtime PS3 nem o SDL.
