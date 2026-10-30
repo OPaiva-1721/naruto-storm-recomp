@@ -33,3 +33,10 @@ Labels sugeridas: `needs-verification`, `bug`, `performance`, `documentation`,
 com critério de verificação claro.
 
 As contribuições autorais usam MIT. Preserve licenças/atribuições de terceiros.
+
+## Android
+
+O [diagnóstico](docs/ANDROID.md) compila sem jogo/firmware. Comece pelo
+[roteiro Android](docs/ANDROID_TASKS.md), rode `python tools/check_android_summary.py`
+e o build/lint documentado. Não misture mudanças no backend Windows com a
+aplicação de diagnóstico. Nenhum APK ou código gerado deve entrar no Git.

@@ -28,6 +28,11 @@ android/.gradle/
 android/build/
 android/app/build/
 android/local.properties
+android/app/.cxx/
+android/.kotlin/
+android/.idea/
+*.apk
+*.aab
 
 # Disgaea D2 app build
 build/jniLibs-d2/

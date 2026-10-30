@@ -20,6 +20,14 @@ Escolha a pasta contendo PS3_GAME e um destino novo; após concluir, use Jogar.c
 - [Controles](docs/PC_CONTROLS.md)
 - [Como contribuir](CONTRIBUTING.md)
 
+## Android em desenvolvimento
+
+Já existe um [esqueleto de diagnóstico Android](docs/ANDROID.md), separado do
+Windows. Ele consulta ABI, memória e dispositivos Vulkan; **ainda não executa
+Naruto nem desenha pelo backend do jogo**. Compila sem possuir dados do jogo.
+Veja o [roteiro para colaboradores](docs/ANDROID_TASKS.md). Builds Android e
+arquivos de jogo não acompanham a release Windows.
+
 Instalação limpa, execução inicial, atualização entre commits locais e recarga de
 saves foram verificadas neste PC. Segunda máquina Windows, áudio auditivo,
 controle físico e campanha completa ainda não foram validados. Veja o relatório.

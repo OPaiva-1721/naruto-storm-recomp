@@ -1,0 +1,32 @@
+name: Android diagnostic scaffold
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - uses: android-actions/setup-android@v3
+        with:
+          # The action defaults to the retired SDK package "tools".
+          packages: platform-tools
+          log-accepted-android-sdk-licenses: false
+      - run: sdkmanager "platforms;android-35" "build-tools;36.0.0" "ndk;28.2.13676358" "cmake;3.22.1"
+      - run: python tools/check_android_summary.py
+      - name: Verify wrapper provenance
+        run: echo '76805e32c009c0cf0dd5d206bddc9fb22ea42e84db904b764f3047de095493f3  android/gradle/wrapper/gradle-wrapper.jar' | sha256sum --check
+      - name: Compile both ABIs and run lint
+        working-directory: android
+        run: ./gradlew --no-daemon :app:assembleDebug :app:lintDebug
+      - run: python tools/check_android_apk.py android/app/build/outputs/apk/debug/app-debug.apk
+      # Build verification only. No APK/native/game-data artifact is published.

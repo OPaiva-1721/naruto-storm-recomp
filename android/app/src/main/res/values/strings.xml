@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Naruto — diagnóstico</string>
+    <string name="intro">Naruto — diagnóstico Android\nEste app ainda não executa o jogo.</string>
+    <string name="refresh">Atualizar diagnóstico</string>
+    <string name="share">Compartilhar relatório</string>
+    <string name="share_title">Compartilhar diagnóstico</string>
+    <string name="collecting">Consultando dispositivo…</string>
+</resources>
