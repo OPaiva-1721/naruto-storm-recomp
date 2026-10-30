@@ -17,6 +17,10 @@ jobs:
         with:
           python-version: '3.12'
       - uses: android-actions/setup-android@v3
+        with:
+          # The action defaults to the retired SDK package "tools".
+          packages: platform-tools
+          log-accepted-android-sdk-licenses: false
       - run: sdkmanager "platforms;android-35" "build-tools;36.0.0" "ndk;28.2.13676358" "cmake;3.22.1"
       - run: python tools/check_android_summary.py
       - name: Verify wrapper provenance
