@@ -5,7 +5,7 @@ reprodução, ferramenta/versão, evidência e limites. Dados derivados ficam lo
 
 | Ordem | Tarefa | Critério de conclusão |
 | --- | --- | --- |
-| 1 | Testar diagnóstico e ciclo de vida em ARM64 | Relatório em aparelho real, rotação/pausa/retomada/compartilhamento exercitados; registrar driver/GPU sem dados pessoais |
+| 1 | Diagnóstico validado em um ARM64; ampliar cobertura | Abertura/consulta observadas e ciclo de vida confirmado pelo usuário em API35/Mali-G52 MC2 em 30/10/2026; falta repetir em outros drivers/aparelhos |
 | 2 | Exercitar erros do probe nativo | Testes determinísticos para loader/funções ausentes e enumeração que muda/falha, sem substituir teste de driver |
 | 3 | Surface e primeiro desenho Vulkan | Criar/destruir superfície e swapchain, desenhar padrão sintético, recuperar rotação/retomada em hardware; sem Naruto/ROM |
 | 4 | Build ARM64 do runtime isolado | Usar SDK fixado, compilar testes sintéticos com NDK e executar os aplicáveis em dispositivo; separar falhas Win32/SSE/ABI |

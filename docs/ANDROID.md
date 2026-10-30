@@ -86,7 +86,7 @@ dispositivos, erro na consulta e consulta bem-sucedida sem alegar renderização
 O auditor de APK confere integridade, bibliotecas esperadas e ELF64 de cada ABI.
 Lint cobre o uso das APIs Android. Esses testes não simulam um driver real.
 O build local/CI não prova abertura em celular, ciclo de vida, importação de jogo,
-renderização, áudio ou desempenho. Validação física permanece pendente.
+renderização, áudio ou desempenho. A validação física do diagnóstico está registrada abaixo.
 
 Verificação local em 29/10/2026: `assembleDebug` das duas ABIs e `lintDebug`
 passaram (restam avisos de compile/target API 35, conservados da base). Assinatura
@@ -94,6 +94,18 @@ APK v2 conferida pelo apksigner; aapt2 confirmou API mínima 29, duas ABIs e
 nenhuma permissão solicitada. Os cinco cenários puros, 38 testes do instalador
 Windows e 34 testes de ferramentas passaram. A revisão de código pediu modo
 executável do wrapper no Git, corrigido antes da publicação da branch.
+
+Em 30/10/2026, o diagnóstico do commit `bfdff09` foi instalado e iniciado em um
+aparelho ARM64 com Android API 35 e Mali-G52 MC2. O adb confirmou inicialização
+a frio e os logs do próprio app confirmaram processo 64-bit, criação da instância
+e um dispositivo Vulkan 1.3.278. O usuário confirmou funcionamento de atualizar,
+girar o aparelho, sair/voltar e compartilhar/cancelar sem envio. Esses passos de
+interface são confirmação manual do usuário, não automação nem teste instrumentado.
+No PID observado após a confirmação não apareceu FATAL EXCEPTION.
+
+Esse resultado conclui o marco de diagnóstico nesse aparelho. Não houve teste
+de superfície/swapchain, desenho, boot de Naruto, áudio ou desempenho do jogo.
+Outros aparelhos e drivers continuam sem validação; os logs brutos ficam locais.
 
 ## Como ajudar
 
